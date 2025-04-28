@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="DeckLoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Field\DeckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Field\DeliveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Field\DetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Field\FieldCardImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Field\PlayFieldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
