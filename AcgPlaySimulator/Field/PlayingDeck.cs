@@ -27,6 +27,14 @@ namespace AcgPlaySimulator.Field
                     CardInfo = card,
                 });
             }
+            SideDeck = new List<PlayingCard>();
+            foreach (var card in deck.ReserveCards)
+            {
+                SideDeck.Add(new PlayingCard()
+                {
+                    CardInfo = card,
+                });
+            }
 
             MainDeckShuffle();
             LandDeckShuffle();
@@ -38,6 +46,7 @@ namespace AcgPlaySimulator.Field
         public List<PlayingCard> MainDeck { get; set; }
 
         public List<PlayingCard> LandDeck { get; set; }
+        public List<PlayingCard> SideDeck { get; set; }
 
         public List<PlayingCard> HandCards { get; set; } = new List<PlayingCard>();
         public List<PlayingCard> FieldCards { get; set; } = new List<PlayingCard>();
@@ -55,6 +64,7 @@ namespace AcgPlaySimulator.Field
         {
             MainDeck.Remove(card);
             LandDeck.Remove(card);
+            SideDeck.Remove(card);
             HandCards.Remove(card);
             FieldCards.Remove(card);
             LandCards.Remove(card);
@@ -185,6 +195,33 @@ namespace AcgPlaySimulator.Field
                     }
                     );
                     break;
+                case CardArea.MainDeck:
+                    MainDeck.Add(
+                    new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    MainDeckSort();
+                    break;
+                case CardArea.LandDeck:
+                    LandDeck.Add(
+                    new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    LandDeckSort();
+                    break;
+                case CardArea.SideDeck:
+                    SideDeck.Add(
+                    new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    SideDeckSort();
+                    break;
             }
         }
 
@@ -203,6 +240,16 @@ namespace AcgPlaySimulator.Field
         public void MainDeckSort()
         {
             MainDeck = MainDeck.OrderBy(x => x.CardInfo.Id).ToList();
+        }
+
+        public void LandDeckSort()
+        {
+            LandDeck = LandDeck.OrderBy(x => x.CardInfo.Id).ToList();
+        }
+
+        public void SideDeckSort()
+        {
+            SideDeck = SideDeck.OrderBy(x => x.CardInfo.Id).ToList();
         }
 
         public void CemeterySort()
@@ -280,6 +327,9 @@ namespace AcgPlaySimulator.Field
         Cemetery,
         Remove,
         Moving,
+        MainDeck,
+        LandDeck,
+        SideDeck,
     }
 
     public class PlayingCard

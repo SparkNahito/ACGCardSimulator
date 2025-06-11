@@ -19,5 +19,8 @@
     <Compile Update="Field\PlayFieldForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Field\SideBoardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

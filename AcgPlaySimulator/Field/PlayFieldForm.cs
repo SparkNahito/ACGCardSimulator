@@ -638,7 +638,19 @@ namespace AcgPlaySimulator.Field
 
             PlayingDeck.Reset();
 
+            using(SideBoardForm sideForm = new SideBoardForm())
+            {
+                sideForm.PlayingDeck = this.PlayingDeck;
+                sideForm.DetailFormShow = this.DetailFormShow;
+                sideForm.ShowDialog();
+            }
+
             ViewAll();
+
+            PlayingDeck.AddLog("サイドボーディングを行いました。");
+
+            PlayingDeck.MainDeckShuffle();
+            PlayingDeck.LandDeckShuffle();
         }
     }
 }

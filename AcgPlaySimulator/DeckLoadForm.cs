@@ -99,11 +99,20 @@ namespace AcgPlaySimulator
             }
             var info = cardInfoLoader.CardInfos[id];
             var image = System.Drawing.Image.FromFile(@".\Image\" + info.Image);
-            var card = new T();
+            CardBase card =
+                info.IsLand == "1" ?
+                new LandDeckCard() :
+                new BaseDeckCard();
+
+            if(card is not T)
+            {
+                return null;
+            }
+
             card.Id = id;
             card.Image = image;
             card.Name = info.Name;
-            return card;
+            return (T)card;
         }
 
     }
