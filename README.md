@@ -1,6 +1,8 @@
 "# ACGCardSimulator" 
 
-AcgPlaySimulator.zip をダウンロードして展開して下さい
+AcgSimulator_1.zip とAcgSimulator_2.zip ... をダウンロードして
+全て同じフォルダに展開して下さい
+
 AcgPlaySimulator.exe を実行するとデッキ読み込み画面になります
 
 ACGビルダー：https://acg-builder.vercel.app/
