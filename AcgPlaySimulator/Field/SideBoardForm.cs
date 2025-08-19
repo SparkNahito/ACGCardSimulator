@@ -76,16 +76,8 @@ namespace AcgPlaySimulator.Field
                 label.Name = panel.Name + "Image" + (index).ToString();
                 image.Size = card.IsMoved ? new Size(151, 105) : new Size(105, 151);
                 var originalImage = card.CardInfo.Image;
-                if (card.IsMoved)
-                {
-                    var flipImage = originalImage?.Clone() as Image;
-                    flipImage?.RotateFlip(RotateFlipType.Rotate270FlipXY);
-                    image.Image = flipImage;
-                }
-                else
-                {
-                    image.Image = originalImage;
-                }
+                // サイドボーディング画面では、ムーブ状態を無視する
+                image.Image = originalImage;
                 image.Location = new Point(1 + (index * cardXDiff), 18);
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.Tag = card;
