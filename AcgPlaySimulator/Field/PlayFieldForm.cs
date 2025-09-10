@@ -62,7 +62,7 @@ namespace AcgPlaySimulator.Field
         private void ViewPanel(Panel panel, string title, List<PlayingCard> cards)
         {
             List<Control> disposeControls = new List<Control>();
-            foreach (Control control in panel.Controls) 
+            foreach (Control control in panel.Controls)
             {
                 disposeControls.Add(control);
             }
@@ -425,6 +425,12 @@ namespace AcgPlaySimulator.Field
             ViewAll();
         }
 
+        private void 除外ソートbutton_Click(object sender, EventArgs e)
+        {
+            PlayingDeck.RemoveSort();
+            ViewAll();
+        }
+
         private void CounterToValue(string counterName, int number)
         {
             if (OpeingContextMenuCard == null)
@@ -631,14 +637,14 @@ namespace AcgPlaySimulator.Field
 
         private void SideButton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("盤面リセットされます宜しいですか？", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            if (MessageBox.Show("盤面リセットされます宜しいですか？", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
             {
                 return;
             }
 
             PlayingDeck.Reset();
 
-            using(SideBoardForm sideForm = new SideBoardForm())
+            using (SideBoardForm sideForm = new SideBoardForm())
             {
                 sideForm.PlayingDeck = this.PlayingDeck;
                 sideForm.DetailFormShow = this.DetailFormShow;
@@ -652,5 +658,6 @@ namespace AcgPlaySimulator.Field
             PlayingDeck.MainDeckShuffle();
             PlayingDeck.LandDeckShuffle();
         }
+
     }
 }

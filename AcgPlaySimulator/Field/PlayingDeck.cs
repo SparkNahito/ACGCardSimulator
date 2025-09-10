@@ -257,6 +257,11 @@ namespace AcgPlaySimulator.Field
             CemeteryCards = CemeteryCards.OrderBy(x => x.CardInfo.Id).ToList();
         }
 
+        public void RemoveSort()
+        {
+            RemoveCards = RemoveCards.OrderBy(x => x.CardInfo.Id).ToList();
+        }
+
         public void Wake()
         {
             foreach(var card in FieldCards)

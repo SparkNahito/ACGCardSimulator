@@ -91,6 +91,7 @@
             SideButton = new Button();
             button6 = new Button();
             numericUpDown1 = new NumericUpDown();
+            button3 = new Button();
             handPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             panel1.SuspendLayout();
@@ -341,6 +342,7 @@
             // 
             // freePanel
             // 
+            freePanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             freePanel.BackColor = SystemColors.ActiveCaption;
             freePanel.BorderStyle = BorderStyle.Fixed3D;
             freePanel.Controls.Add(pictureBox4);
@@ -547,6 +549,7 @@
             // 
             // CemeteryPanel
             // 
+            CemeteryPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CemeteryPanel.BackColor = SystemColors.ActiveCaption;
             CemeteryPanel.BorderStyle = BorderStyle.Fixed3D;
             CemeteryPanel.Controls.Add(pictureBox6);
@@ -577,6 +580,7 @@
             // 
             // RemovePanel
             // 
+            RemovePanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             RemovePanel.BackColor = SystemColors.ActiveCaption;
             RemovePanel.BorderStyle = BorderStyle.Fixed3D;
             RemovePanel.Controls.Add(pictureBox7);
@@ -647,7 +651,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(597, 12);
+            button6.Location = new Point(542, 11);
             button6.Name = "button6";
             button6.Size = new Size(110, 59);
             button6.TabIndex = 12;
@@ -666,11 +670,22 @@
             numericUpDown1.Value = new decimal(new int[] { 20, 0, 0, 0 });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
+            // button3
+            // 
+            button3.Location = new Point(654, 11);
+            button3.Name = "button3";
+            button3.Size = new Size(110, 59);
+            button3.TabIndex = 14;
+            button3.Text = "除外ソート";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += 除外ソートbutton_Click;
+            // 
             // PlayFieldForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1322, 794);
+            Controls.Add(button3);
             Controls.Add(numericUpDown1);
             Controls.Add(button6);
             Controls.Add(SideButton);
@@ -784,5 +799,6 @@
         private Button button6;
         private Button MainSearchButton;
         private NumericUpDown numericUpDown1;
+        private Button button3;
     }
 }
