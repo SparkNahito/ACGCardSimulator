@@ -74,7 +74,7 @@ namespace AcgPlaySimulator.Field
             {
                 var image = new PictureBox();
                 label.Name = panel.Name + "Image" + (index).ToString();
-                image.Size = card.IsMoved ? new Size(151, 105) : new Size(105, 151);
+                image.Size = new Size(105, 151);
                 var originalImage = card.CardInfo.Image;
                 if (card.IsMoved)
                 {
