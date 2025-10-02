@@ -204,6 +204,23 @@ namespace AcgPlaySimulator.Field
                     );
                     MainDeckSort();
                     break;
+                case CardArea.MainDeck_Top:
+                    MainDeck.Insert(0, new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    AddLog("カードをメインデッキの上に戻しました");
+                    break;
+                case CardArea.MainDeck_Bottom:
+                    MainDeck.Add(
+                    new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    AddLog("カードをメインデッキの下に戻しました");
+                    break;
                 case CardArea.LandDeck:
                     LandDeck.Add(
                     new PlayingCard()
@@ -212,6 +229,23 @@ namespace AcgPlaySimulator.Field
                     }
                     );
                     LandDeckSort();
+                    break;
+                case CardArea.LandDeck_Top:
+                    LandDeck.Insert(0, new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    AddLog("カードを領土デッキの上に戻しました");
+                    break;
+                case CardArea.LandDeck_Bottom:
+                    LandDeck.Add(
+                    new PlayingCard()
+                    {
+                        CardInfo = card.CardInfo,
+                    }
+                    );
+                    AddLog("カードを領土デッキの下に戻しました");
                     break;
                 case CardArea.SideDeck:
                     SideDeck.Add(
@@ -335,6 +369,11 @@ namespace AcgPlaySimulator.Field
         MainDeck,
         LandDeck,
         SideDeck,
+
+        MainDeck_Top,
+        MainDeck_Bottom,
+        LandDeck_Top,
+        LandDeck_Bottom,
     }
 
     public class PlayingCard

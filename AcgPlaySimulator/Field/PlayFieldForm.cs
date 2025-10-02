@@ -304,9 +304,7 @@ namespace AcgPlaySimulator.Field
             if (OpeingContextMenuCard is PlayingCard card
                 && card.CardInfo is BaseDeckCard)
             {
-                PlayingDeck.RemoveCard(OpeingContextMenuCard);
-                PlayingDeck.MainDeck.Insert(0, card);
-                PlayingDeck.AddLog("カードをメインデッキの上に戻しました");
+                PlayingDeck.MoveCard(card, CardArea.MainDeck_Top);
             }
             ViewAll();
         }
@@ -321,9 +319,7 @@ namespace AcgPlaySimulator.Field
             if (OpeingContextMenuCard is PlayingCard card
                 && card.CardInfo is BaseDeckCard)
             {
-                PlayingDeck.RemoveCard(OpeingContextMenuCard);
-                PlayingDeck.MainDeck.Add(card);
-                PlayingDeck.AddLog("カードをメインデッキの下に戻しました");
+                PlayingDeck.MoveCard(card, CardArea.MainDeck_Bottom);
             }
             ViewAll();
         }
@@ -337,9 +333,7 @@ namespace AcgPlaySimulator.Field
             if (OpeingContextMenuCard is PlayingCard card
                 && card.CardInfo is LandDeckCard)
             {
-                PlayingDeck.RemoveCard(OpeingContextMenuCard);
-                PlayingDeck.LandDeck.Insert(0, card);
-                PlayingDeck.AddLog("カードを領地デッキの上に戻しました");
+                PlayingDeck.MoveCard(card, CardArea.LandDeck_Top);
             }
             ViewAll();
         }
@@ -353,9 +347,7 @@ namespace AcgPlaySimulator.Field
             if (OpeingContextMenuCard is PlayingCard card
                 && card.CardInfo is LandDeckCard)
             {
-                PlayingDeck.RemoveCard(OpeingContextMenuCard);
-                PlayingDeck.LandDeck.Add(card);
-                PlayingDeck.AddLog("カードを領地デッキの下に戻しました");
+                PlayingDeck.MoveCard(card, CardArea.LandDeck_Bottom);
             }
             ViewAll();
         }
@@ -659,5 +651,50 @@ namespace AcgPlaySimulator.Field
             PlayingDeck.LandDeckShuffle();
         }
 
+        private void mainDeckPictureBox_Click(object sender, EventArgs e)
+        {
+            if (PlayingDeck.MovingCards.Count <= 0)
+            {
+                return;
+            }
+            switch (MessageBox.Show("山札の上に置きますか？（はい：山の上。いいえ：山の下）", "", MessageBoxButtons.YesNoCancel))
+            {
+                case DialogResult.Yes:
+                    foreach (var card in PlayingDeck.MovingCards.ToList())
+                    {
+                        PlayingDeck.MoveCard(card, CardArea.MainDeck_Top);
+                    }
+                    break;
+                case DialogResult.No:
+                    foreach (var card in PlayingDeck.MovingCards.ToList())
+                    {
+                        PlayingDeck.MoveCard(card, CardArea.MainDeck_Bottom);
+                    }
+                    break;
+            }
+        }
+
+        private void landDeckPictureBox_Click(object sender, EventArgs e)
+        {
+            if (PlayingDeck.MovingCards.Count <= 0)
+            {
+                return;
+            }
+            switch (MessageBox.Show("山札の上に置きますか？（はい：山の上。いいえ：山の下）", "", MessageBoxButtons.YesNoCancel))
+            {
+                case DialogResult.Yes:
+                    foreach (var card in PlayingDeck.MovingCards.ToList())
+                    {
+                        PlayingDeck.MoveCard(card, CardArea.LandDeck_Top);
+                    }
+                    break;
+                case DialogResult.No:
+                    foreach (var card in PlayingDeck.MovingCards.ToList())
+                    {
+                        PlayingDeck.MoveCard(card, CardArea.LandDeck_Bottom);
+                    }
+                    break;
+            }
+        }
     }
 }

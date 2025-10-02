@@ -48,7 +48,7 @@
             LandCheckButton = new Button();
             LandOpenButton = new Button();
             label4 = new Label();
-            pictureBox1 = new PictureBox();
+            LandDeckPictureBox = new PictureBox();
             LandPanel = new Panel();
             pictureBox2 = new PictureBox();
             label3 = new Label();
@@ -97,7 +97,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mainDeckPictureBox).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)LandDeckPictureBox).BeginInit();
             LandPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             freePanel.SuspendLayout();
@@ -236,6 +236,7 @@
             mainDeckPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mainDeckPictureBox.TabIndex = 2;
             mainDeckPictureBox.TabStop = false;
+            mainDeckPictureBox.Click += mainDeckPictureBox_Click;
             // 
             // panel2
             // 
@@ -246,7 +247,7 @@
             panel2.Controls.Add(LandCheckButton);
             panel2.Controls.Add(LandOpenButton);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(LandDeckPictureBox);
             panel2.Location = new Point(772, 254);
             panel2.Name = "panel2";
             panel2.Size = new Size(179, 176);
@@ -300,15 +301,16 @@
             label4.TabIndex = 3;
             label4.Text = "領土デッキ";
             // 
-            // pictureBox1
+            // LandDeckPictureBox
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(67, 9);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(105, 151);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            LandDeckPictureBox.Image = (Image)resources.GetObject("LandDeckPictureBox.Image");
+            LandDeckPictureBox.Location = new Point(67, 9);
+            LandDeckPictureBox.Name = "LandDeckPictureBox";
+            LandDeckPictureBox.Size = new Size(105, 151);
+            LandDeckPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            LandDeckPictureBox.TabIndex = 2;
+            LandDeckPictureBox.TabStop = false;
+            LandDeckPictureBox.Click += landDeckPictureBox_Click;
             // 
             // LandPanel
             // 
@@ -711,7 +713,7 @@
             ((System.ComponentModel.ISupportInitialize)mainDeckPictureBox).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)LandDeckPictureBox).EndInit();
             LandPanel.ResumeLayout(false);
             LandPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -751,7 +753,7 @@
         private Button LandCheckButton;
         private Button LandOpenButton;
         private Label label4;
-        private PictureBox pictureBox1;
+        private PictureBox LandDeckPictureBox;
         private Panel panel4;
         private PictureBox pictureBox3;
         private Label label5;
