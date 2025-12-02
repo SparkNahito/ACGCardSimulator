@@ -34,6 +34,7 @@
             pictureBox = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
+            MainBottomOpenButton = new Button();
             MainSearchButton = new Button();
             MainNnmberLabel = new Label();
             MainShuffleButton = new Button();
@@ -92,6 +93,7 @@
             button6 = new Button();
             numericUpDown1 = new NumericUpDown();
             button3 = new Button();
+            HandOpenButton = new Button();
             handPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             panel1.SuspendLayout();
@@ -146,6 +148,7 @@
             // 
             panel1.BackColor = SystemColors.Info;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(MainBottomOpenButton);
             panel1.Controls.Add(MainSearchButton);
             panel1.Controls.Add(MainNnmberLabel);
             panel1.Controls.Add(MainShuffleButton);
@@ -159,9 +162,19 @@
             panel1.Size = new Size(179, 176);
             panel1.TabIndex = 1;
             // 
+            // MainBottomOpenButton
+            // 
+            MainBottomOpenButton.Location = new Point(3, 95);
+            MainBottomOpenButton.Name = "MainBottomOpenButton";
+            MainBottomOpenButton.Size = new Size(61, 23);
+            MainBottomOpenButton.TabIndex = 10;
+            MainBottomOpenButton.Text = "下を公開";
+            MainBottomOpenButton.UseVisualStyleBackColor = true;
+            MainBottomOpenButton.Click += MainBottomOpenButton_Click;
+            // 
             // MainSearchButton
             // 
-            MainSearchButton.Location = new Point(3, 134);
+            MainSearchButton.Location = new Point(3, 146);
             MainSearchButton.Name = "MainSearchButton";
             MainSearchButton.Size = new Size(61, 23);
             MainSearchButton.TabIndex = 9;
@@ -180,7 +193,7 @@
             // 
             // MainShuffleButton
             // 
-            MainShuffleButton.Location = new Point(3, 105);
+            MainShuffleButton.Location = new Point(3, 121);
             MainShuffleButton.Name = "MainShuffleButton";
             MainShuffleButton.Size = new Size(61, 23);
             MainShuffleButton.TabIndex = 7;
@@ -190,7 +203,7 @@
             // 
             // MainCheckButton
             // 
-            MainCheckButton.Location = new Point(3, 76);
+            MainCheckButton.Location = new Point(3, 70);
             MainCheckButton.Name = "MainCheckButton";
             MainCheckButton.Size = new Size(61, 23);
             MainCheckButton.TabIndex = 6;
@@ -200,7 +213,7 @@
             // 
             // MainOpenButton
             // 
-            MainOpenButton.Location = new Point(3, 47);
+            MainOpenButton.Location = new Point(3, 45);
             MainOpenButton.Name = "MainOpenButton";
             MainOpenButton.Size = new Size(61, 23);
             MainOpenButton.TabIndex = 5;
@@ -210,7 +223,7 @@
             // 
             // MainDrawButton
             // 
-            MainDrawButton.Location = new Point(3, 18);
+            MainDrawButton.Location = new Point(3, 20);
             MainDrawButton.Name = "MainDrawButton";
             MainDrawButton.Size = new Size(61, 23);
             MainDrawButton.TabIndex = 4;
@@ -653,7 +666,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(542, 11);
+            button6.Location = new Point(538, 11);
             button6.Name = "button6";
             button6.Size = new Size(110, 59);
             button6.TabIndex = 12;
@@ -682,11 +695,22 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += 除外ソートbutton_Click;
             // 
+            // HandOpenButton
+            // 
+            HandOpenButton.Location = new Point(422, 12);
+            HandOpenButton.Name = "HandOpenButton";
+            HandOpenButton.Size = new Size(110, 59);
+            HandOpenButton.TabIndex = 15;
+            HandOpenButton.Text = "手札を公開";
+            HandOpenButton.UseVisualStyleBackColor = true;
+            HandOpenButton.Click += HandOpenButton_Click;
+            // 
             // PlayFieldForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1322, 794);
+            Controls.Add(HandOpenButton);
             Controls.Add(button3);
             Controls.Add(numericUpDown1);
             Controls.Add(button6);
@@ -802,5 +826,7 @@
         private Button MainSearchButton;
         private NumericUpDown numericUpDown1;
         private Button button3;
+        private Button MainBottomOpenButton;
+        private Button HandOpenButton;
     }
 }

@@ -296,6 +296,14 @@ namespace AcgPlaySimulator.Field
             RemoveCards = RemoveCards.OrderBy(x => x.CardInfo.Id).ToList();
         }
 
+        internal void HandOpen()
+        {
+            foreach(var card in HandCards)
+            {
+                card.IsOpen = true;
+            }
+        }
+
         public void Wake()
         {
             foreach(var card in FieldCards)

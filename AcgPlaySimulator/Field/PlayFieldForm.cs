@@ -165,6 +165,20 @@ namespace AcgPlaySimulator.Field
             ViewAll();
         }
 
+        private void MainBottomOpenButton_Click(object sender, EventArgs e)
+        {
+            if (PlayingDeck.MainDeck.Count == 0)
+            {
+                return;
+            }
+
+            var card = PlayingDeck.MainDeck[PlayingDeck.MainDeck.Count - 1];
+            PlayingDeck.MoveCard(card, CardArea.FreeOpen);
+            PlayingDeck.AddLog("カードをメインデッキの下から公開しました");
+            ViewAll();
+        }
+
+
         private void MainCheckButton_Click(object sender, EventArgs e)
         {
             if (PlayingDeck.MainDeck.Count == 0)
@@ -408,6 +422,12 @@ namespace AcgPlaySimulator.Field
         private void 起床button_Click(object sender, EventArgs e)
         {
             PlayingDeck.Wake();
+            ViewAll();
+        }
+
+        private void HandOpenButton_Click(object sender, EventArgs e)
+        {
+            PlayingDeck.HandOpen();
             ViewAll();
         }
 
@@ -696,5 +716,6 @@ namespace AcgPlaySimulator.Field
                     break;
             }
         }
+
     }
 }
